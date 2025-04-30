@@ -10,9 +10,10 @@ fn part1() -> usize {
     let mut nodes: HashMap<&str, HashMap<&str, usize>> = HashMap::new();
 
     let binding = std::fs::read_to_string("input").unwrap();
-    for l in binding.lines().map(|l| l.trim()) {
-        let dist = l.split_whitespace().collect::<Vec<&str>>();
-
+    for dist in binding
+        .lines()
+        .map(|l| l.split_whitespace().collect::<Vec<&str>>())
+    {
         if !nodes.contains_key(dist[0]) {
             nodes.insert(dist[0], HashMap::new());
         }
@@ -52,9 +53,10 @@ fn part2() -> usize {
     let mut nodes: HashMap<&str, HashMap<&str, usize>> = HashMap::new();
 
     let binding = std::fs::read_to_string("input").unwrap();
-    for l in binding.lines().map(|l| l.trim()) {
-        let dist = l.split_whitespace().collect::<Vec<&str>>();
-
+    for dist in binding
+        .lines()
+        .map(|l| l.split_whitespace().collect::<Vec<&str>>())
+    {
         if !nodes.contains_key(dist[0]) {
             nodes.insert(dist[0], HashMap::new());
         }
