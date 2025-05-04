@@ -1,0 +1,28 @@
+[workspace]
+members = [
+  "2015/day1",
+  "2015/day2",
+  "2015/day3",
+  "2015/day4",
+  "2015/day5",
+  "2015/day6",
+  "2015/day7",
+  "2015/day8",
+  "2015/day9",
+  "2015/day10",
+  "2015/day11",
+  "2015/day12",
+  "2015/day13",
+  "2015/day14",
+]
+resolver = "3"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+authors = ["Sam Cordry (samcordry@gmail.com)"]
+
+[workspace.dependencies]
+md-5 = "0.10.6"
+itertools = "0.14.0"
+serde_json = "1.0.140"

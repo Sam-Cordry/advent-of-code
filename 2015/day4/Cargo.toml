@@ -4,4 +4,4 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-md-5 = "0.10.6"
+md-5 = { workspace = true }
