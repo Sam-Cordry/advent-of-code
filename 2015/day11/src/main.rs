@@ -1,6 +1,8 @@
 fn main() {
-    println!("Part 1: {}", part1());
-    println!("Part 2: {}", part2());
+    let input = include_str!("../input");
+
+    println!("Part 1: {}", part1(input));
+    println!("Part 2: {}", part2(input));
 }
 
 fn next(current: &str) -> String {
@@ -61,8 +63,8 @@ fn is_valid(current: &str) -> bool {
         && has_two_pair(current)
 }
 
-fn part1() -> String {
-    let mut current = std::fs::read_to_string("input").unwrap().trim().to_string();
+fn part1(input: &str) -> String {
+    let mut current = input.trim().to_string();
 
     loop {
         current = next(&current);
@@ -74,8 +76,8 @@ fn part1() -> String {
     current
 }
 
-fn part2() -> String {
-    let mut current = part1();
+fn part2(input: &str) -> String {
+    let mut current = part1(input);
 
     loop {
         current = next(&current);

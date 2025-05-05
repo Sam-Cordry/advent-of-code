@@ -1,11 +1,12 @@
 fn main() {
-    println!("Part 1: {}", part1());
-    println!("Part 2: {}", part2());
+    let input = include_str!("../input");
+
+    println!("Part 1: {}", part1(input));
+    println!("Part 2: {}", part2(input));
 }
 
-fn part1() -> usize {
-    std::fs::read_to_string("input")
-        .unwrap()
+fn part1(input: &str) -> usize {
+    input
         .lines()
         .filter(|l| {
             l.chars()
@@ -26,9 +27,8 @@ fn part1() -> usize {
         .count()
 }
 
-fn part2() -> usize {
-    std::fs::read_to_string("input")
-        .unwrap()
+fn part2(input: &str) -> usize {
+    input
         .lines()
         .filter(|l| {
             for pair in l.chars().enumerate().collect::<Vec<_>>().windows(2) {

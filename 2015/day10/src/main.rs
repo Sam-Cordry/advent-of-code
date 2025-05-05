@@ -1,8 +1,10 @@
 use itertools::Itertools;
 
 fn main() {
-    println!("Part 1: {}", part1());
-    println!("Part 2: {}", part2());
+    let input = include_str!("../input");
+
+    println!("Part 1: {}", part1(input));
+    println!("Part 2: {}", part2(input));
 }
 
 fn next(line: &str) -> String {
@@ -16,8 +18,8 @@ fn next(line: &str) -> String {
     next
 }
 
-fn part1() -> usize {
-    let mut current: String = std::fs::read_to_string("input").unwrap().trim().to_string();
+fn part1(input: &str) -> usize {
+    let mut current: String = input.trim().to_string();
 
     for _ in 0..40 {
         current = next(&current);
@@ -26,8 +28,8 @@ fn part1() -> usize {
     current.len()
 }
 
-fn part2() -> usize {
-    let mut current: String = std::fs::read_to_string("input").unwrap().trim().to_string();
+fn part2(input: &str) -> usize {
+    let mut current: String = input.trim().to_string();
 
     for _ in 0..50 {
         current = next(&current);

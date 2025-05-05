@@ -1,8 +1,10 @@
 use serde_json::Value;
 
 fn main() {
-    println!("Part 1: {}", part1());
-    println!("Part 2: {}", part2());
+    let input = include_str!("../input");
+
+    println!("Part 1: {}", part1(input));
+    println!("Part 2: {}", part2(input));
 }
 
 fn skip_red(value: &Value) -> i32 {
@@ -20,17 +22,15 @@ fn skip_red(value: &Value) -> i32 {
     }
 }
 
-fn part1() -> i32 {
-    std::fs::read_to_string("input")
-        .unwrap()
+fn part1(input: &str) -> i32 {
+    input
         .split(['[', ']', '{', '}', '"', ',', ':'])
         .filter_map(|s| s.parse::<i32>().ok())
         .sum()
 }
 
-fn part2() -> i32 {
-    let object: Value =
-        serde_json::from_str(std::fs::read_to_string("input").unwrap().as_str()).unwrap();
+fn part2(input: &str) -> i32 {
+    let object: Value = serde_json::from_str(input).unwrap();
 
     skip_red(&object)
 }

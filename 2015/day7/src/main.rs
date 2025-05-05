@@ -1,6 +1,5 @@
 use std::collections::HashMap;
 
-#[derive(Debug)]
 enum Gate<'a> {
     And {
         left: &'a str,
@@ -118,7 +117,7 @@ impl<'a> Gate<'a> {
     }
 }
 
-#[derive(Default, Debug)]
+#[derive(Default)]
 struct Wire {
     set: bool,
     value: u16,
@@ -132,11 +131,13 @@ impl Wire {
 }
 
 fn main() {
-    println!("Part 1: {}", part1());
-    println!("Part 2: {}", part2());
+    let input = include_str!("../input");
+
+    println!("Part 1: {}", part1(input));
+    println!("Part 2: {}", part2(input));
 }
 
-fn part1() -> u16 {
+fn part1(input: &str) -> u16 {
     let mut wires: HashMap<&str, Wire> = HashMap::new();
     let mut gates: Vec<Gate> = vec![];
 
@@ -148,8 +149,7 @@ fn part1() -> u16 {
         },
     );
 
-    let binding = std::fs::read_to_string("input").unwrap();
-    for l in binding.lines().map(|l| l.trim()) {
+    for l in input.lines().map(|l| l.trim()) {
         let instr = l.split_whitespace().collect::<Vec<&str>>();
 
         if instr.len() == 3 {
@@ -262,7 +262,7 @@ fn part1() -> u16 {
     wires.get("a").unwrap().value
 }
 
-fn part2() -> u16 {
+fn part2(input: &str) -> u16 {
     let mut wires: HashMap<&str, Wire> = HashMap::new();
     let mut gates: Vec<Gate> = vec![];
 
@@ -278,12 +278,11 @@ fn part2() -> u16 {
         "b",
         Wire {
             set: true,
-            value: part1(),
+            value: part1(input),
         },
     );
 
-    let binding = std::fs::read_to_string("input").unwrap();
-    for l in binding.lines().map(|l| l.trim()) {
+    for l in input.lines().map(|l| l.trim()) {
         let instr = l.split_whitespace().collect::<Vec<&str>>();
 
         if instr.len() == 3 {

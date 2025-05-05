@@ -1,12 +1,12 @@
 fn main() {
-    println!("Part 1: {}", part1());
-    println!("Part 2: {}", part2());
+    let input = include_str!("../input");
+
+    println!("Part 1: {}", part1(input));
+    println!("Part 2: {}", part2(input));
 }
 
-fn part1() -> usize {
-    std::fs::read_to_string("input")
-        .unwrap()
-        .trim()
+fn part1(input: &str) -> usize {
+    input
         .lines()
         .map(|l| {
             let dims: Vec<usize> = l.split("x").map(|n| n.parse().unwrap()).collect();
@@ -18,10 +18,8 @@ fn part1() -> usize {
         .sum()
 }
 
-fn part2() -> usize {
-    std::fs::read_to_string("input")
-        .unwrap()
-        .trim()
+fn part2(input: &str) -> usize {
+    input
         .lines()
         .map(|l| {
             let mut dims: Vec<usize> = l.split("x").map(|n| n.parse().unwrap()).collect();

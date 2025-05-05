@@ -1,19 +1,17 @@
 use md5::{Digest, Md5};
 
 fn main() {
-    println!("Part 1: {}", part1());
-    println!("Part 2: {}", part2());
+    let input = include_str!("../input");
+
+    println!("Part 1: {}", part1(input));
+    println!("Part 2: {}", part2(input));
 }
 
-fn part1() -> usize {
+fn part1(input: &str) -> usize {
     let mut count: usize = 1;
     let mut hasher = Md5::new();
 
-    let input = std::fs::read_to_string("input")
-        .unwrap()
-        .trim()
-        .as_bytes()
-        .to_vec();
+    let input = input.trim().as_bytes().to_vec();
 
     loop {
         let mut temp = input.clone();
@@ -31,15 +29,11 @@ fn part1() -> usize {
     count
 }
 
-fn part2() -> usize {
+fn part2(input: &str) -> usize {
     let mut count: usize = 1;
     let mut hasher = Md5::new();
 
-    let input = std::fs::read_to_string("input")
-        .unwrap()
-        .trim()
-        .as_bytes()
-        .to_vec();
+    let input = input.trim().as_bytes().to_vec();
 
     loop {
         let mut temp = input.clone();

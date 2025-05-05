@@ -35,15 +35,16 @@ impl Reindeer {
 }
 
 fn main() {
-    println!("Part 1: {}", part1());
-    println!("Part 2: {}", part2());
+    let input = include_str!("../input");
+
+    println!("Part 1: {}", part1(input));
+    println!("Part 2: {}", part2(input));
 }
 
-fn part1() -> usize {
+fn part1(input: &str) -> usize {
     let mut reindeer: Vec<Reindeer> = vec![];
 
-    for line in std::fs::read_to_string("input")
-        .unwrap()
+    for line in input
         .lines()
         .map(|l| l.split_whitespace().collect::<Vec<&str>>())
     {
@@ -66,11 +67,10 @@ fn part1() -> usize {
     reindeer.iter().map(|r| r.distance).max().unwrap()
 }
 
-fn part2() -> usize {
+fn part2(input: &str) -> usize {
     let mut reindeer: Vec<Reindeer> = vec![];
 
-    for line in std::fs::read_to_string("input")
-        .unwrap()
+    for line in input
         .lines()
         .map(|l| l.split_whitespace().collect::<Vec<&str>>())
     {

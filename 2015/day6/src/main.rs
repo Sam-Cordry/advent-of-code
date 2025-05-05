@@ -1,16 +1,14 @@
 fn main() {
-    println!("Part 1: {}", part1());
-    println!("Part 2: {}", part2());
+    let input = include_str!("../input");
+
+    println!("Part 1: {}", part1(input));
+    println!("Part 2: {}", part2(input));
 }
 
-fn part1() -> usize {
+fn part1(input: &str) -> usize {
     let mut lights: Vec<Vec<bool>> = vec![vec![false; 1000]; 1000];
 
-    for l in std::fs::read_to_string("input")
-        .unwrap()
-        .lines()
-        .map(|l| l.trim())
-    {
+    for l in input.lines().map(|l| l.trim()) {
         let instr = l.split_whitespace().collect::<Vec<_>>();
 
         if instr.len() == 4 {
@@ -52,14 +50,10 @@ fn part1() -> usize {
         .sum()
 }
 
-fn part2() -> usize {
+fn part2(input: &str) -> usize {
     let mut lights: Vec<Vec<usize>> = vec![vec![0; 1000]; 1000];
 
-    for l in std::fs::read_to_string("input")
-        .unwrap()
-        .lines()
-        .map(|l| l.trim())
-    {
+    for l in input.lines().map(|l| l.trim()) {
         let instr = l.split_whitespace().collect::<Vec<_>>();
 
         if instr.len() == 4 {

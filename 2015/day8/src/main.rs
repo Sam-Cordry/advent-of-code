@@ -1,17 +1,15 @@
 fn main() {
-    println!("Part 1: {}", part1());
-    println!("Part 2: {}", part2());
+    let input = include_str!("../input");
+
+    println!("Part 1: {}", part1(input));
+    println!("Part 2: {}", part2(input));
 }
 
-fn part1() -> usize {
+fn part1(input: &str) -> usize {
     let mut code: usize = 0;
     let mut memory: usize = 0;
 
-    for l in std::fs::read_to_string("input")
-        .unwrap()
-        .lines()
-        .map(|l| l.trim())
-    {
+    for l in input.lines().map(|l| l.trim()) {
         let mut iter = l.chars();
         while let Some(c) = iter.next() {
             if c == '"' {
@@ -37,15 +35,11 @@ fn part1() -> usize {
     code - memory
 }
 
-fn part2() -> usize {
+fn part2(input: &str) -> usize {
     let mut code: usize = 0;
     let mut new: usize = 0;
 
-    for l in std::fs::read_to_string("input")
-        .unwrap()
-        .lines()
-        .map(|l| l.trim())
-    {
+    for l in input.lines().map(|l| l.trim()) {
         new += 2;
         for c in l.chars() {
             code += 1;

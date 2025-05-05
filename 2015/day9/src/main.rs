@@ -2,15 +2,16 @@ use itertools::Itertools;
 use std::collections::HashMap;
 
 fn main() {
-    println!("Part 1: {}", part1());
-    println!("Part 2: {}", part2());
+    let input = include_str!("../input");
+
+    println!("Part 1: {}", part1(input));
+    println!("Part 2: {}", part2(input));
 }
 
-fn part1() -> usize {
+fn part1(input: &str) -> usize {
     let mut nodes: HashMap<&str, HashMap<&str, usize>> = HashMap::new();
 
-    let binding = std::fs::read_to_string("input").unwrap();
-    for dist in binding
+    for dist in input
         .lines()
         .map(|l| l.split_whitespace().collect::<Vec<&str>>())
     {
@@ -49,11 +50,10 @@ fn part1() -> usize {
     min
 }
 
-fn part2() -> usize {
+fn part2(input: &str) -> usize {
     let mut nodes: HashMap<&str, HashMap<&str, usize>> = HashMap::new();
 
-    let binding = std::fs::read_to_string("input").unwrap();
-    for dist in binding
+    for dist in input
         .lines()
         .map(|l| l.split_whitespace().collect::<Vec<&str>>())
     {
