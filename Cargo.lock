@@ -78,9 +78,10 @@ dependencies = [
 [[package]]
 name = "day18"
 version = "0.1.0"
-dependencies = [
- "itertools",
-]
+
+[[package]]
+name = "day19"
+version = "0.1.0"
 
 [[package]]
 name = "day2"
