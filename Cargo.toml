@@ -19,6 +19,7 @@ members = [
   "2015/day17",
   "2015/day18",
   "2015/day19",
+  "2015/day20",
 ]
 resolver = "3"
 
@@ -31,3 +32,4 @@ authors = ["Sam Cordry (samcordry@gmail.com)"]
 md-5 = "0.10.6"
 itertools = "0.14.0"
 serde_json = "1.0.140"
+divisors = "0.2.1"
