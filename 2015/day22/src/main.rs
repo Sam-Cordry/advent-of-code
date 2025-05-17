@@ -52,11 +52,7 @@ fn get_next(state: &State) -> Vec<State> {
         next.push(State {
             player_mana: state.player_mana - 53,
             mana_spent: state.mana_spent + 53,
-            boss_hp: if state.boss_hp <= 4 {
-                0
-            } else {
-                state.boss_hp - 4
-            },
+            boss_hp: state.boss_hp.saturating_sub(4),
             ..*state
         });
     }
@@ -66,11 +62,7 @@ fn get_next(state: &State) -> Vec<State> {
             player_hp: state.player_hp + 2,
             player_mana: state.player_mana - 73,
             mana_spent: state.mana_spent + 73,
-            boss_hp: if state.boss_hp <= 2 {
-                0
-            } else {
-                state.boss_hp - 2
-            },
+            boss_hp: state.boss_hp.saturating_sub(2),
             ..*state
         });
     }
