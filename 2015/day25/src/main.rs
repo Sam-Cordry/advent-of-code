@@ -21,11 +21,11 @@ fn part1(input: &str) -> usize {
         .next()
         .unwrap();
 
-    let mut count = 0;
+    let mut result = 20151125;
     let mut t_row = 0;
     let mut t_col = 0;
     while t_row != row || t_col != col {
-        count += 1;
+        result = (result * 252533) % 33554393;
 
         if t_row == 0 {
             t_row = t_col + 1;
@@ -34,11 +34,6 @@ fn part1(input: &str) -> usize {
             t_row -= 1;
             t_col += 1;
         }
-    }
-
-    let mut result = 20151125;
-    for _ in 0..count {
-        result = (result * 252533) % 33554393;
     }
 
     result
