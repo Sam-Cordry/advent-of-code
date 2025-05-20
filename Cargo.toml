@@ -33,6 +33,7 @@ members = [
   "2016/day6",
   "2016/day7",
   "2016/day8",
+  "2016/day9",
 ]
 resolver = "3"
 
