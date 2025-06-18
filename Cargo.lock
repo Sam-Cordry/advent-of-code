@@ -303,6 +303,10 @@ name = "day3-2017"
 version = "0.1.0"
 
 [[package]]
+name = "day3-2018"
+version = "0.1.0"
+
+[[package]]
 name = "day4-2015"
 version = "0.1.0"
 dependencies = [
