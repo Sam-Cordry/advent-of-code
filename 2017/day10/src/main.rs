@@ -69,7 +69,7 @@ fn part2(input: &str) -> String {
 
     let mut result = String::new();
     for h in hex {
-        result.push_str(&format!("{:02x}", h));
+        result.push_str(&format!("{h:02x}"));
     }
     result
 }

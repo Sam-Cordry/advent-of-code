@@ -1,5 +1,3 @@
-use std::collections::LinkedList;
-
 #[derive(Clone, Copy)]
 struct Marble {
     value: usize,
