@@ -45,7 +45,7 @@ fn knot_hash_of(s: &str) -> String {
 
     let mut result = String::new();
     for h in hex {
-        result.push_str(&format!("{:08b}", h));
+        result.push_str(&format!("{h:08b}"));
     }
     result
 }
