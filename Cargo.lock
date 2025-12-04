@@ -358,6 +358,10 @@ name = "day4-2018"
 version = "0.1.0"
 
 [[package]]
+name = "day4-2025"
+version = "0.1.0"
+
+[[package]]
 name = "day5-2015"
 version = "0.1.0"
 
